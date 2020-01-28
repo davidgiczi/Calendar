@@ -1,0 +1,25 @@
+   
+            body {
+                
+                text-align: center;
+            }
+            
+            td {
+
+                border: 1px solid black;
+                border-collapse: collapse;
+                height: 170px;
+               
+            }
+            
+           table, tr, th {
+
+                border: 0px solid transparent;
+                border-collapse: collapse
+            }
+            
+            td {
+
+                vertical-align: text-top;
+            }
+
