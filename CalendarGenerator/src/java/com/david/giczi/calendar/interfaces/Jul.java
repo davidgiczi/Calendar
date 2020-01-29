@@ -45,12 +45,9 @@ public interface Jul {
       };
     
     String[] HOLIDAYS ={"A nándorfehérvári diadal emléknapja",
-                        "Születésnapom, Dalmika névnapja",
-                        "Anyám szültesnapja",
-                        "Kedvesem névnapja",
-                        "Anyám névnapja"
+                       
                                     };
     
-    Integer[] HOLIDATES  = {22, 12, 17, 26, 30};
+    Integer[] HOLIDATES  = {22};
       
 }

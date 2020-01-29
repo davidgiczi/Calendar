@@ -42,10 +42,9 @@ public interface Apr {
       
       };
     
-    String[] HOLIDAYS ={"A holokauszt áldozatainak emléknapja",
-                        "Apám névnapja"
+    String[] HOLIDAYS ={"A holokauszt áldozatainak emléknapja"
     
                                 };
     
-    Integer[] HOLIDATES  = {16, 17};
+    Integer[] HOLIDATES  = {16};
 }

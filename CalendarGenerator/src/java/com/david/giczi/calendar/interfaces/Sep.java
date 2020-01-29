@@ -43,9 +43,9 @@ public interface Sep {
       
       };
     
-    String[] HOLIDAYS ={"Apám születésnapja"
+    String[] HOLIDAYS ={
     
                                 };
-    Integer[] HOLIDATES  = {3};
+    Integer[] HOLIDATES  = {};
       
 }

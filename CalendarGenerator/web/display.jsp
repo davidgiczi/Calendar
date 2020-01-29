@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Calendar</title>
+        <title>${month}</title>
         <link rel="stylesheet" type="text/css" media="screen" href="css/calendar.css" />
     </head>
     <body>

@@ -45,8 +45,8 @@ public interface Jan {
     
     String[] HOLIDAYS ={"Újév",
                         "A magyar kultúra napja",
-                        "Dalmika születésnapja"
+                        
                             };
     
-    Integer[] HOLIDATES  = {1, 22, 12};
+    Integer[] HOLIDATES  = {1, 22};
 }

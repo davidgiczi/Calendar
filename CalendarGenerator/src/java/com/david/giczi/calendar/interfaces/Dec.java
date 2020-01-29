@@ -47,11 +47,10 @@ public interface Dec {
                         "Szenteste", 
                         "Karácsony",
                         "Karácsony",
-                        "Névnapom",
                         "Szilveszter"
     
                              };
     
-    Integer[] HOLIDATES  = {6, 24, 25, 26, 30, 31};
+    Integer[] HOLIDATES  = {6, 24, 25, 26, 31};
       
 }

@@ -10,7 +10,7 @@
     </filter-mapping>
     <servlet>
         <servlet-name>CalendarCreatorServlet</servlet-name>
-        <servlet-class>com.david.giczi.calendar.servlets.CalendarCreatorServlet</servlet-class>
+        <servlet-class>com.david.giczi.calendar.servlets.MonthCreatorServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CalendarCreatorServlet</servlet-name>
@@ -22,6 +22,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>create</welcome-file>
+        <welcome-file>init</welcome-file>
     </welcome-file-list>
 </web-app>

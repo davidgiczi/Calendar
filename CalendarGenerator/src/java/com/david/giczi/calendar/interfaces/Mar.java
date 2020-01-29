@@ -45,10 +45,9 @@ public interface Mar {
       };
     
     String[] HOLIDAYS ={"Nőnap",
-                       "1848-as forradalom",
-                       "Kedvesem születésnapja"
+                       "1848-as forradalom"
                             
                             };
-    Integer[] HOLIDATES  = {8, 15, 27};
+    Integer[] HOLIDATES  = {8, 15};
     
 }
