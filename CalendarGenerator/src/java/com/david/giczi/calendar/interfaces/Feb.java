@@ -42,10 +42,10 @@ public interface Feb {
     };
     
     String[] HOLIDAYS ={"Köztársaság napja",
-                        "Bátyám névnapja",
-                        "A kommunista diktatúrák áldozatainak emléknapja"
+                        "A kommunista diktatúrák&nbsp;&nbsp;<br>"
+                        + "áldozatainak emléknapja"
     
                             };
     
-    Integer[] HOLIDATES  = {1, 3, 25};
+    Integer[] HOLIDATES  = {1, 25};
 }

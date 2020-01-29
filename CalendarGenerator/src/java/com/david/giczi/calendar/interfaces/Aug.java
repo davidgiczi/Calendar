@@ -45,7 +45,8 @@ public interface Aug {
     
     String[] HOLIDAYS ={"Nagyboldogasszony ünnepe",
                         "Az államalapítás-, Szent István-,<br>és az új kenyér ünnepe",
-                        "A totalitárius diktatúrák áldozatainak<br>európai emléknapja"
+                        "A totalitárius diktatúrák áldozatainak&nbsp;&nbsp;<br>"
+                        + "európai emléknapja"
                     
                                 };
     

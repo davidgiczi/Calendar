@@ -46,11 +46,10 @@ public interface Nov {
                         "Halottak napja",
                         "Az emlékezés napja",
                         "A magyer nyelv napja",
-                        "Bátyám születésnapja",
                         "Gulág-emléknap"
     
                             };
     
-    Integer[] HOLIDATES  = {1, 2, 4, 13, 22, 25};
+    Integer[] HOLIDATES  = {1, 2, 4, 13, 25};
       
 }
