@@ -21,7 +21,7 @@
 
         <form action="create" method="POST" accept-charset="UTF-8" id="inputdata">
             
-            <p id="yearinf" style="color: red"></p>
+            <p id="inf" style="color: red"></p>
             <h2 style="color: grey">Évszám megadása:</h2>
             <input type="number" id="inyear" name="inputyear" min="1582" value="${thisyear}">
             <h2 style="color: grey">Hónap választása:</h2>   
@@ -55,8 +55,8 @@
             
         </form>
         
-        <h2 style="color: grey" id="txt">Havi események megadása:</h2>
-        <button style="color: black" id="add">Mező hozzáadása</button><br><br><br>
+        <h2 style="color: grey" id="txt">Havi események:</h2>
+        <button style="color: black" id="add">Esemény hozzáadása</button><br><br><br>
         <button style="color: black" id="gen">Hónap generálása</button>
         
         <script src="script/startscript.js"></script>

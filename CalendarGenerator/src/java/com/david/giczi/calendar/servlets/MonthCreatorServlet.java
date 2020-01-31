@@ -5,6 +5,7 @@ import com.david.giczi.calendar.model.MonthFactory;
 import com.david.giczi.calendar.model.OrganizingMonthDataForView;
 import com.david.giczi.calendar.utils.MonthName;
 import java.io.IOException;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,12 +20,11 @@ public class MonthCreatorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        String inYear = request.getParameter("inputyear");
-        String inMonth = request.getParameter("inputmonth");
-
-        Month month = MonthFactory.createMonth(MonthName.getMonthNameByIndex(Integer.parseInt(inMonth)),
-                Integer.parseInt(inYear));
+        
+        Map<String, String[]> store = request.getParameterMap();
+        
+        Month month = MonthFactory.createMonth(MonthName.getMonthNameByIndex(
+        Integer.parseInt(store.get("inputmonth")[0])), Integer.parseInt(store.get("inputyear")[0]));
 
         OrganizingMonthDataForView disp = new OrganizingMonthDataForView(month.getDays(),
                 month.getYear(), month.getMonthName());

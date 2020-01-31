@@ -3,6 +3,7 @@ package com.david.giczi.calendar.model;
 
 import com.david.giczi.calendar.exceptions.NoSuchMonthException;
 import com.david.giczi.calendar.utils.MonthName;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -34,27 +35,30 @@ public class Validate {
      
     }
     
-   public static boolean isMonthDayNumberValid(String inputData, MonthName month, int year) {
+   public static boolean isMonthDayNumberValid(String inputDay, String inputYear, String inputMonth) {
        
        int day;
        
+       MonthName month = MonthName.getMonthNameByIndex(Integer.parseInt(inputMonth));
+       int year = Integer.parseInt(inputYear);
+       
         try{
             
-            if(inputData.length() > 2 ) {
+            if(inputDay.length() > 2 ) {
                 
                 throw new NumberFormatException();
                 
             }
             
-            day = Integer.parseInt(inputData);
+            day = Integer.parseInt(inputDay);
             
-            if( 0 > day) {
+            if( 0 >= day) {
                 
                  throw new NumberFormatException();
             }
             
         }catch(NumberFormatException e){
-            
+           
             return false;
         }
        
@@ -89,4 +93,29 @@ public class Validate {
         }
    } 
     
+   
+   public static boolean isEasterValid(String event, int year, int month, int day){
+       
+       if( event.toLowerCase().startsWith( "húsvét" ) ) {
+           
+           if( MonthName.getMonthNameByIndex(month) != MonthName.MAR || 
+                   MonthName.getMonthNameByIndex(month) != MonthName.APR ) {
+                   
+               return false;
+       }
+       
+           
+      if( new GregorianCalendar(year, month, day).get(Calendar.DAY_OF_WEEK) != 2 ){
+          
+            return false;
+      }   
+  
+   }   
+   
+   return true;
+}
+
+   
+   
+   
 }

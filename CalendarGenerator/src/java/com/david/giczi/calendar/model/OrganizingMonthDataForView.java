@@ -22,8 +22,19 @@ public class OrganizingMonthDataForView {
     private final List<String>  namedaysOfMonth;
     private final List<String>  holidaysOfMonth;
     private int numberOfRows;
-   
 
+    public OrganizingMonthDataForView(int year, MonthName monthName) {
+        this.monthName = monthName;
+        this.days = null;
+        this.year = year;
+        this.dayNumberOfMonth = null;
+        this.dayColorOfMonth = null;
+        this.namedaysOfMonth = null;
+        this.holidaysOfMonth = null;
+    }
+   
+    
+    
     public OrganizingMonthDataForView(List<Day> days, int year, MonthName monthName) {
         
         this.days = days;
@@ -125,6 +136,41 @@ public class OrganizingMonthDataForView {
         }
         
     }
+    
+    public int getMonthDaysNumber() {
+        
+         switch(monthName){
+            
+            case JAN :
+            case MAR :
+            case MAY :
+            case JUL :
+            case AUG :
+            case OCT :
+            case DEC :
+                
+           return 31;
+                
+            case FEB :
+          
+              return  new GregorianCalendar().isLeapYear(year) ?  29 : 28 ;
+            
+            case APR :
+            case JUN :
+            case SEP :
+            case NOV :
+                
+            return 30;
+                
+            
+            default:
+                
+                throw new NoSuchMonthException();
+        
+        
+    }
+  
+   }
     
     
     private int getPreviousMonthDaysNumber() {
