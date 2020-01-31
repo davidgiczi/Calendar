@@ -94,18 +94,21 @@ public class Validate {
    } 
     
    
-   public static boolean isEasterValid(String event, int year, int month, int day){
+   public static boolean isEasterValid(String event, String inputYear, String inputMonth, String inputDay){
        
        if( event.toLowerCase().startsWith( "húsvét" ) ) {
            
-           if( MonthName.getMonthNameByIndex(month) != MonthName.MAR || 
-                   MonthName.getMonthNameByIndex(month) != MonthName.APR ) {
-                   
+           if( MonthName.getMonthNameByIndex(Integer.parseInt(inputMonth)) != MonthName.MAR && 
+                   MonthName.getMonthNameByIndex(Integer.parseInt(inputMonth)) != MonthName.APR ) {
+               
+               
                return false;
        }
        
            
-      if( new GregorianCalendar(year, month, day).get(Calendar.DAY_OF_WEEK) != 2 ){
+      if( new GregorianCalendar(Integer.parseInt(inputYear), Integer.parseInt(inputMonth),
+              Integer.parseInt(inputDay)).get(Calendar.DAY_OF_WEEK) != 2 ){
+          
           
             return false;
       }   
@@ -115,7 +118,7 @@ public class Validate {
    return true;
 }
 
-   
+    
    
    
 }

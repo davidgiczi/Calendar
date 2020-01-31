@@ -1,10 +1,9 @@
 
 document.getElementById("add").addEventListener("click", addInputField);
 document.getElementById("add").addEventListener("click", addDataToFields);
-
+document.getElementById("add").addEventListener("click", disabledButtons);
 document.getElementById("gen").addEventListener("click", sendInputData);
 document.getElementById("inyear").addEventListener("blur", validate);
-
 document.getElementsByName("inputmonth")[0].addEventListener("change", validate);
 
 var eventnumber = 1;
@@ -30,11 +29,9 @@ function addInputField() {
     row = row.concat(eventstring);
 
     document.getElementById("events").innerHTML = row;
-     
-    document.getElementById("add").disabled = true; 
-     
+      
     eventnumber++;
-        
+       
 }
 
 function validate() {
@@ -94,6 +91,14 @@ function addDataToFields() {
     }
 }
 
+function disabledButtons() {
+    
+    document.getElementById("add").disabled = true;
+    document.getElementById("gen").disabled = true;
+   
+}
+
+
 function sendInputData() {
    
     document.getElementById("inputdata").submit();
@@ -137,3 +142,4 @@ function sendDataForValidation(data) {
     xmlHTTP.send();
 
 }
+

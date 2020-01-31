@@ -38,9 +38,7 @@ public class InitServlet extends HttpServlet {
       months.add("Október");
       months.add("November");
       months.add("December");
-      
-     request.getSession().setAttribute("monthsnamestore", months);
-        
+           
      String thisYear =  new SimpleDateFormat("yyyy").format(new Date(System.currentTimeMillis()));
      String thisMonth =  new SimpleDateFormat("M").format(new Date(System.currentTimeMillis()));
        

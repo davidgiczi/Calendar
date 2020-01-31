@@ -1,9 +1,11 @@
 
 package com.david.giczi.calendar.model;
 
+import com.david.giczi.calendar.exceptions.NoSuchDayException;
 import com.david.giczi.calendar.exceptions.NoSuchMonthException;
 import com.david.giczi.calendar.utils.MonthName;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -17,16 +19,19 @@ public class OrganizingMonthDataForView {
     private final MonthName monthName;
     private final List<Day> days;
     private final int year;
+    private  int day;
     private final List<Integer> dayNumberOfMonth;
     private final List<String>  dayColorOfMonth;
     private final List<String>  namedaysOfMonth;
     private final List<String>  holidaysOfMonth;
     private int numberOfRows;
+    
 
     public OrganizingMonthDataForView(int year, MonthName monthName) {
+        
+        this.year = year;
         this.monthName = monthName;
         this.days = null;
-        this.year = year;
         this.dayNumberOfMonth = null;
         this.dayColorOfMonth = null;
         this.namedaysOfMonth = null;
@@ -76,8 +81,11 @@ public class OrganizingMonthDataForView {
     public int getNumberOfRows() {
         return numberOfRows;
     }
-    
-     
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+        
     public String getNameOfMonth() {
         
         switch(monthName) {
@@ -366,5 +374,38 @@ public class OrganizingMonthDataForView {
        
        
    }
+   
+   
+   public String getNameOfDay(){
+       
+       int dayOfWeek = new GregorianCalendar(year, MonthName.getMonthIndexByName(monthName), day).get(Calendar.DAY_OF_WEEK);
+       
+       switch(dayOfWeek){
+           
+           case 1 :
+               return "vasárnap";
+           case 2 :
+               return "hétfő";
+           case 3:
+               return "kedd";
+           case 4:
+               return "szerda";
+           case 5:
+               return "csütörtök";
+           case 6:
+               return "péntek";
+           case 7:
+               return "szombat";
+               
+           default:
+               
+                  throw new NoSuchDayException();
+           
+           
+       }
+       
+       
+   }
+
    
 }
