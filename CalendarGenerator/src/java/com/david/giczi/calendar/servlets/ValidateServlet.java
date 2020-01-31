@@ -1,7 +1,9 @@
 
 package com.david.giczi.calendar.servlets;
 
+import com.david.giczi.calendar.model.OrganizingMonthDataForView;
 import com.david.giczi.calendar.model.Validate;
+import com.david.giczi.calendar.utils.MonthName;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -24,9 +26,49 @@ public class ValidateServlet extends HttpServlet {
         
         PrintWriter pw = response.getWriter();
         
-        String inputData = request.getParameter("y");
+        String inputData = request.getParameter("data");
+       
+        String[] inputDataStore = inputData.split(",");
         
-        pw.append(String.valueOf( Validate.isYearValid(inputData) ));
+        for (String string : inputDataStore) {
+            System.out.println("-"+string);
+        }
+        
+      if(  inputDataStore.length == 2 && !Validate.isYearValid(inputDataStore[0]) ){
+           
+      pw.append("Csak szám lehet az évszám adat és 1581 < értéke < 10000.");
+            
+      }
+      else if (inputDataStore.length > 2 ) {
+        
+           
+          String inYear = inputDataStore[inputDataStore.length-2];
+          String inMonth = inputDataStore[inputDataStore.length-1];
+          
+        for( int i = 0; i< inputDataStore.length-2; i++)   {
+            
+            
+        if( i%2 == 1 && !Validate.isMonthDayNumberValid(inputDataStore[i], inYear, inMonth) ) {
+           
+          OrganizingMonthDataForView o = new OrganizingMonthDataForView(Integer.parseInt(inYear),
+                  MonthName.getMonthNameByIndex(Integer.parseInt(inMonth)));
+                   
+          pw.append(o.getNameOfMonth()+" hónap "+o.getMonthDaysNumber()+
+                  " napos és 0 < napok száma < "+(o.getMonthDaysNumber()+1)+"." );
+           
+         return;
+       }
+                      
+            
+   }
+          
+       
+          
+          
+          
+          
+      }
+        
           
          
     }
