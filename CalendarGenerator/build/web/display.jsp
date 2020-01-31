@@ -15,7 +15,7 @@
     </head>
     <body>
 
-
+        <br><br>
         <table style="width: 100%">
 
             <tr>
@@ -52,6 +52,15 @@
 
         <font id="yearmonth" size="6" face="Arial">${year}<b> |  ${month} </b></font>
         
+        <br><br><br><br>
+        
+        <button id="prev" style="float: left; background-color: white; color: grey; cursor: pointer"><<</button>
+        
+        <a href="init" style="color: grey">nyitó oldalra</a>
+        
+        <button id="next" style="float: right; background-color: white; color: grey; cursor: pointer">>></button>
 
+        <script src="script/dispscript.js"></script>
+        
 </body>
 </html>

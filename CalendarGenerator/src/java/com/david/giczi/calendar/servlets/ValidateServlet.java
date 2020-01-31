@@ -30,9 +30,6 @@ public class ValidateServlet extends HttpServlet {
        
         String[] inputDataStore = inputData.split(",");
         
-        for (String string : inputDataStore) {
-            System.out.println("-"+string);
-        }
         
       if(  inputDataStore.length == 2 && !Validate.isYearValid(inputDataStore[0]) ){
            
@@ -45,20 +42,32 @@ public class ValidateServlet extends HttpServlet {
           String inYear = inputDataStore[inputDataStore.length-2];
           String inMonth = inputDataStore[inputDataStore.length-1];
           
+          OrganizingMonthDataForView o= new OrganizingMonthDataForView(Integer.parseInt(inYear),
+                  MonthName.getMonthNameByIndex(Integer.parseInt(inMonth)));
+          
         for( int i = 0; i< inputDataStore.length-2; i++)   {
+            
             
             
         if( i%2 == 1 && !Validate.isMonthDayNumberValid(inputDataStore[i], inYear, inMonth) ) {
            
-          OrganizingMonthDataForView o = new OrganizingMonthDataForView(Integer.parseInt(inYear),
-                  MonthName.getMonthNameByIndex(Integer.parseInt(inMonth)));
-                   
+         
           pw.append(o.getNameOfMonth()+" hónap "+o.getMonthDaysNumber()+
                   " napos és 0 < napok száma < "+(o.getMonthDaysNumber()+1)+"." );
            
          return;
        }
-                      
+                 
+        if( i%2 == 0 && !Validate.isEasterValid(inputDataStore[i], inYear, inMonth, inputDataStore[i+1]) ) {
+           
+            int day = Integer.parseInt(inputDataStore[i+1]);
+            o.setDay(day);
+            
+           pw.append("Húsvétnak március vagy április hónpban hétfői napra kell esnie, "+
+                   inYear+". "+ o.getNameOfMonth().toLowerCase()+" "+inputDataStore[i+1]+". ("+o.getNameOfDay()+").");
+           
+       }
+        
             
    }
           
