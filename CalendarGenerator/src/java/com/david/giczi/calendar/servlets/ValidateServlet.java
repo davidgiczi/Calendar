@@ -47,17 +47,22 @@ public class ValidateServlet extends HttpServlet {
           
         for( int i = 0; i< inputDataStore.length-2; i++)   {
             
-            
-            
+                        
         if( i%2 == 1 && !Validate.isMonthDayNumberValid(inputDataStore[i], inYear, inMonth) ) {
            
          
           pw.append(o.getNameOfMonth()+" hónap "+o.getMonthDaysNumber()+
-                  " napos és 0 < napok száma < "+(o.getMonthDaysNumber()+1)+"." );
+                  " napos, 0 < napok száma < "+(o.getMonthDaysNumber()+1)+"." );
            
          return;
        }
-                 
+         
+          
+   }
+          
+       for( int i = 0; i< inputDataStore.length-2; i++)   {
+           
+           
         if( i%2 == 0 && !Validate.isEasterValid(inputDataStore[i], inYear, inMonth, inputDataStore[i+1]) ) {
            
             int day = Integer.parseInt(inputDataStore[i+1]);
@@ -66,12 +71,11 @@ public class ValidateServlet extends HttpServlet {
            pw.append("Húsvétnak március vagy április hónpban hétfői napra kell esnie, "+
                    inYear+". "+ o.getNameOfMonth().toLowerCase()+" "+inputDataStore[i+1]+". ("+o.getNameOfDay()+").");
            
+           
        }
-        
-            
-   }
-          
-       
+           
+               
+       }
           
           
           

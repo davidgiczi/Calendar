@@ -59,6 +59,8 @@
         <button style="color: black" id="add">Esemény hozzáadása</button><br><br><br>
         <button style="color: black" id="gen">Hónap generálása</button>
         
+        
+        
         <script src="script/startscript.js"></script>
     </body>
 </html>
