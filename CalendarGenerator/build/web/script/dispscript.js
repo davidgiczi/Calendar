@@ -1,10 +1,29 @@
 
 document.getElementById("prev").addEventListener("click", getPreviousMonth);
 document.getElementById("next").addEventListener("click", getNextMonth);
+document.getElementById("start").addEventListener("click", toStartPage);
+document.getElementById("del").addEventListener("click", delActualMonthEvents);
 
- var actualyear = parseInt( document.getElementById("actyear").value ) ;
+
+ var actualyear = parseInt( document.getElementById("actyear").value );
  var actualmonth = document.getElementById("actmonth").value;
  var month;
+
+function delActualMonthEvents() {
+    
+    month = getDayNumberByName();
+    document.getElementById("delmonth").value = month;
+    document.getElementById("delForm").submit();
+  
+}
+
+
+function toStartPage() {
+    
+    var url = document.location.protocol + "//" + document.location.host;
+    
+    window.location.href = url+"/calendar";
+}
 
 function getDayNumberByName () {
     
@@ -112,7 +131,7 @@ function getPreviousMonth() {
 }
 
 function sendData() {
-    
+   
    document.getElementById("actyear").value = actualyear;
    document.getElementById("actmonth").value = month;
      

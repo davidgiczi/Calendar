@@ -53,6 +53,8 @@
             </select>
             <div id="events"></div>
             
+          
+            
         </form>
         
         <h2 style="color: grey" id="txt">Havi események:</h2>
