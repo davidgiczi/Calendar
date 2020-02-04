@@ -1,8 +1,8 @@
-
+document.getElementById("add").addEventListener("click", validate);
 document.getElementById("add").addEventListener("click", addInputField);
 document.getElementById("add").addEventListener("click", addDataToFields);
-document.getElementById("add").addEventListener("click", disabledButtons);
-document.getElementById("gen").addEventListener("click", sendInputData);
+
+document.getElementById("gen").addEventListener("click", validateAndSendInputData);
 document.getElementById("inyear").addEventListener("blur", validate);
 document.getElementsByName("inputmonth")[0].addEventListener("change", validate);
 
@@ -16,13 +16,16 @@ var inputdatastring = "";
 
 var inputs = [];
 
+var sendData = true;
+
+
 
 function addInputField() {
 
     document.getElementById("txt").innerHTML = "";
 
     eventstring = "<h3 style='color: grey'>" + eventnumber + ". esemény neve:</h3>" +
-            "<input name='"+eventnumber+"event' id='"+eventnumber+"e' value='' type='text' size='30'>" +
+            "<input name='"+eventnumber+"event' id='"+eventnumber+"e' onblur='validate()' value='' type='text' size='30'>" +
             "<h3 style='color: grey'>Az esemény napja:</h3>" +
             "<input name='"+eventnumber+"date' id='"+eventnumber+"d' onblur='validate()' value='' type='number' min='1' max='31'>";
      
@@ -46,7 +49,7 @@ function concatEventsAndDates() {
     
     inputdatastring = "";
     inputs = [];
-    
+      
     for( var i = 1; i < eventnumber; i++) {
        
        var event = document.getElementById(i+"e").value;
@@ -60,7 +63,6 @@ function concatEventsAndDates() {
   }
     
     concatYearAndMonth();
-   
 }
 function concatYearAndMonth() {
     
@@ -91,10 +93,14 @@ function addDataToFields() {
     }
 }
 
-function disabledButtons() {
+function validateAndSendInputData() {
     
-    document.getElementById("add").disabled = true;
-    document.getElementById("gen").disabled = true;
+    validate();
+    
+    if ( sendData  ) {
+        
+        sendInputData();
+    }
    
 }
 
@@ -118,16 +124,17 @@ function sendDataForValidation(data) {
             document.getElementById("inf").innerHTML = response;  
             
             
-            if (response === "") {
+            if ( response === "" ) {
                 
                 document.getElementById("gen").disabled = false;
                 document.getElementById("add").disabled = false;
-                
-            } else {
+                sendData = true;
+            }
+            else  {
                 
                 document.getElementById("gen").disabled = true;
                 document.getElementById("add").disabled = true;
-                
+                sendData = false;
             }
 
         }

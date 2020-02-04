@@ -28,6 +28,7 @@ public class ValidateServlet extends HttpServlet {
         
         String inputData = request.getParameter("data");
        
+        
         String[] inputDataStore = inputData.split(",");
         
         

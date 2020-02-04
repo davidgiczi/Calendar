@@ -3,19 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/exceptions/NoSuchDayException.java</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/model/OrganizingMonthDataForView.java</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/utils/DayName.java</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/start.jsp</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/script/startscript.js</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/display.jsp</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/servlets/ValidateServlet.java</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/model/Validate.java</file>
             <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/servlets/MonthCreatorServlet.java</file>
+            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/start.jsp</file>
             <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/script/dispscript.js</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/servlets/InitServlet.java</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/utils/MonthName.java</file>
+            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/servlets/MonthlyEventsDeleteServlet.java</file>
+            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/display.jsp</file>
         </group>
     </open-files>
 </project-private>
