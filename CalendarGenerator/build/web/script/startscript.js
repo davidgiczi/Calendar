@@ -1,10 +1,12 @@
+document.getElementById("inyear").addEventListener("blur", validate);
+document.getElementsByName("inputmonth")[0].addEventListener("change", validate);
+
 document.getElementById("add").addEventListener("click", validate);
 document.getElementById("add").addEventListener("click", addInputField);
 document.getElementById("add").addEventListener("click", addDataToFields);
 
 document.getElementById("gen").addEventListener("click", validateAndSendInputData);
-document.getElementById("inyear").addEventListener("blur", validate);
-document.getElementsByName("inputmonth")[0].addEventListener("change", validate);
+
 
 var eventnumber = 1;
 
@@ -45,11 +47,22 @@ function validate() {
     
 }
 
+function concatYearAndMonth() {
+    
+  var year = document.getElementById("inyear").value;
+  var month = document.getElementsByName("inputmonth")[0].value;
+    
+  inputdatastring = inputdatastring.concat(year+","+month+",");
+    
+}
+
 function concatEventsAndDates() {
     
     inputdatastring = "";
     inputs = [];
-      
+    
+    concatYearAndMonth();
+    
     for( var i = 1; i < eventnumber; i++) {
        
        var event = document.getElementById(i+"e").value;
@@ -58,20 +71,13 @@ function concatEventsAndDates() {
        inputs.push(event);
        inputs.push(date);
       
-      inputdatastring = inputdatastring.concat(event+","+date+",");
+      inputdatastring = inputdatastring.concat(event+","+date);
    
   }
     
-    concatYearAndMonth();
-}
-function concatYearAndMonth() {
-    
-  var year = document.getElementById("inyear").value;
-  var month = document.getElementsByName("inputmonth")[0].value;
-    
-  inputdatastring = inputdatastring.concat(year+","+month);
     
 }
+
 
 function addDataToFields() {
     
