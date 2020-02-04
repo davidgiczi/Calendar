@@ -32,21 +32,19 @@ public class ValidateServlet extends HttpServlet {
         String[] inputDataStore = inputData.split(",");
         
         
-      if(  inputDataStore.length == 2 && !Validate.isYearValid(inputDataStore[0]) ){
+      if( !Validate.isYearValid(inputDataStore[0]) ){
            
       pw.append("Csak szám lehet az évszám adat és 1581 < értéke < 10000.");
-            
+      return;      
       }
-      else if (inputDataStore.length > 2 ) {
-        
-           
-          String inYear = inputDataStore[inputDataStore.length-2];
-          String inMonth = inputDataStore[inputDataStore.length-1];
+               
+          String inYear = inputDataStore[0];
+          String inMonth = inputDataStore[1];
           
           OrganizingMonthDataForView o= new OrganizingMonthDataForView(Integer.parseInt(inYear),
                   MonthName.getMonthNameByIndex(Integer.parseInt(inMonth)));
           
-        for( int i = 0; i< inputDataStore.length-2; i++)   {
+        for( int i = 2; i< inputDataStore.length; i++)   {
             
                         
         if( i%2 == 1 && !Validate.isMonthDayNumberValid(inputDataStore[i], inYear, inMonth) ) {
@@ -61,7 +59,7 @@ public class ValidateServlet extends HttpServlet {
           
    }
           
-       for( int i = 0; i< inputDataStore.length-2; i++)   {
+       for( int i = 2; i< inputDataStore.length; i++)   {
            
            
         if( i%2 == 0 && !Validate.isEasterValid(inputDataStore[i], inYear, inMonth, inputDataStore[i+1]) ) {
@@ -84,8 +82,7 @@ public class ValidateServlet extends HttpServlet {
       }
         
           
-         
-    }
+        
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
