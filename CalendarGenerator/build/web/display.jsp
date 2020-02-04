@@ -56,15 +56,36 @@
         
         <button id="prev" style="float: left; background-color: white; color: grey; cursor: pointer"><<</button>
         
-        <a href="http://localhost:8080/calendar/" style="color: grey">kezdőoldalra</a>
-        
         <button id="next" style="float: right; background-color: white; color: grey; cursor: pointer">>></button>
         
+        <a id="start" style="color: grey;cursor: pointer">Kezdőoldalra&nbsp;&nbsp;</a>
+        
+        <a id="del" style="color: grey;cursor: pointer">Havi események törlése&nbsp;&nbsp;</a>
+        
+        <a id="print" style="color: grey;cursor: pointer">Oldal nyomtatása</a>
+        
+       
+       
+        
         <form action="create" method="POST" id="stepper">
+            
             <input type="hidden" id="actyear" value="${year}" name="inputyear">
             <input type="hidden" id="actmonth" value="${month}" name="inputmonth">
+            
+          
         </form>
-
+        
+          <form action="delete" method="POST" id="delForm">
+            
+            <input type="hidden" value="${year}" name="inputyear">
+            <input type="hidden" id="delmonth" value="" name="inputmonth">
+            
+          
+        </form>
+            
+            
+            
+            
         <script src="script/dispscript.js"></script>
         
 </body>
