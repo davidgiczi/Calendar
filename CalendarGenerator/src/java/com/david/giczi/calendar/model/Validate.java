@@ -37,7 +37,7 @@ public class Validate {
     
    public static boolean isMonthDayNumberValid(String inputDay, String inputYear, String inputMonth) {
        
-       if( "".equals(inputDay) ){
+       if( " ".equals(inputDay) ){
            
            return true;
        }
@@ -101,7 +101,7 @@ public class Validate {
    
    public static boolean isEasterValid(String event, String inputYear, String inputMonth, String inputDay){
        
-       if( "".equals(inputDay) ){
+       if( " ".equals(inputDay) ){
            
            return true;
        }

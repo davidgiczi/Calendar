@@ -44,7 +44,7 @@ public class EventCreator {
        EVENTS.stream().filter((event) ->
       ( event.getYear() == month.getYear() && event.getMonth() == month.getMonthName() ))
       .forEachOrdered((event) -> {month.getDays().get( event.getDay() -1 ).setHolidayName( month.getDays()
-       .get( event.getDay() -1 ).getHolidayName()+"&nbsp;&nbsp;&nbsp;<br>"+event.getEventName() );
+       .get( event.getDay() -1 ).getHolidayName()+event.getEventName() );
         });
        
    }
@@ -99,17 +99,29 @@ public class EventCreator {
    }
    
    
-   public static void deleteAddedEventsFromTheMonth( int year, MonthName month ){
+   public static void clearAddedEventNameFromTheMonthDays( Month month ){
        
-      for( int i = EVENTS.size()-1; i >= 0; i--){
-          
-          if( EVENTS.get(i).getYear() == year && EVENTS.get(i).getMonth() == month ) {
-          
-              EVENTS.remove(i);
-      }
+      
+       EVENTS.stream().filter( event -> event.getYear() == month.getYear()
+               && event.getMonth() == month.getMonthName() ).forEachOrdered( event -> event.setEventName(""));
+      
+         
+       
+   }
+      
+   public static void deleteAddedEventsFromTheMonths( Month month )   {
+       
+     for( int i = EVENTS.size()-1 ; i >= 0; i-- )  {
+         
+         if( EVENTS.get(i).getYear() == month.getYear() && EVENTS.get(i).getMonth() == month.getMonthName() ){
+             
+             EVENTS.remove( i );
+         }
+     }
+     
+       
        
    }
    
-}
    
 }

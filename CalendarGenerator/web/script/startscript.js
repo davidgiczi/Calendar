@@ -71,7 +71,13 @@ function concatEventsAndDates() {
        inputs.push(event);
        inputs.push(date);
       
-      inputdatastring = inputdatastring.concat(event+","+date);
+     if( date === "") {
+         
+         date = " ";
+         
+     }
+      
+      inputdatastring = inputdatastring.concat(event+","+date+",");
    
   }
     

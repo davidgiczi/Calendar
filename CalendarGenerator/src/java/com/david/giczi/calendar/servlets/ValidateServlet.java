@@ -30,7 +30,7 @@ public class ValidateServlet extends HttpServlet {
        
         
         String[] inputDataStore = inputData.split(",");
-        
+         
         
       if( !Validate.isYearValid(inputDataStore[0]) ){
            
@@ -52,8 +52,7 @@ public class ValidateServlet extends HttpServlet {
          
           pw.append(o.getNameOfMonth()+" hónap "+o.getMonthDaysNumber()+
                   " napos, 0 < napok száma < "+(o.getMonthDaysNumber()+1)+"." );
-           
-         return;
+           return;
        }
          
           
