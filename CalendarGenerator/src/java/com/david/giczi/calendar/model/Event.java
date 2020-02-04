@@ -10,13 +10,13 @@ import java.util.Objects;
  */
 public class Event {
     
-    private final String eventName;
+    private String eventName;
     private final int year;
     private final MonthName month;
     private final int day;
 
     public Event(String eventName, int year, MonthName month, int day) {
-        this.eventName = eventName;
+        this.eventName ="&nbsp;&nbsp;&nbsp;<br>"+eventName;
         this.year = year;
         this.month = month;
         this.day = day;
@@ -38,6 +38,12 @@ public class Event {
         return day;
     }
 
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 5;
