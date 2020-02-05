@@ -76,12 +76,12 @@ public class Month {
 
         if (isLeapYear(year) && monthName == MonthName.FEB) {
 
-            days.set(23, new Day("Jázmin"));
-            days.set(24, new Day("Mátyás, Cézár, Vanda"));
-            days.set(25, new Day("Géza, Viktor, Győző"));
-            days.set(26, new Day("Edina, Bátor, Gábor"));
-            days.set(27, new Day("Ákos, Oszvald, Román"));
-            days.add(new Day("Elemér"));
+            days.set(23, new Day("Szökőnap"));
+            days.set(24, new Day("Mátyás, Jázmin"));
+            days.set(25, new Day("Géza,  Cézár, Vanda"));
+            days.set(26, new Day("Edina, Viktor, Győző"));
+            days.set(27, new Day("Ákos, Bátor, Gábor"));
+            days.add(new Day("Elemér, Oszvald, Román"));
         }
 
     }

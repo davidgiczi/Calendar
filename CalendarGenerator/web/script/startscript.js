@@ -7,6 +7,7 @@ document.getElementById("add").addEventListener("click", addDataToFields);
 
 document.getElementById("gen").addEventListener("click", validateAndSendInputData);
 
+document.getElementById("find").addEventListener("click", searchNameInTheCalenadar);
 
 var eventnumber = 1;
 
@@ -163,3 +164,44 @@ function sendDataForValidation(data) {
 }
 
 
+function searchNameInTheCalenadar() {
+    
+   var input = prompt("Keresendő névnap megadása");
+    
+    if ( input !== null ) {
+        
+        var year = document.getElementById("inyear").value;
+        sendDataForNameSearching( input, year );
+    }
+    
+    
+    
+}
+
+
+function sendDataForNameSearching(name, year) {
+    
+     var xmlHTTP = new XMLHttpRequest();
+
+    xmlHTTP.onreadystatechange = function () {
+
+        if (xmlHTTP.readyState === 4 && xmlHTTP.status === 200) {
+
+            var response = xmlHTTP.responseText;
+            
+            document.getElementById("dates").innerHTML = response;  
+            
+
+        }
+
+    };
+
+    var url = document.location.protocol + "//" + document.location.host +
+            document.location.pathname + "search?inputtext=" + name+"&actualyear="+year;
+
+
+    xmlHTTP.open("GET", url, true);
+    xmlHTTP.send();
+    
+    
+}
