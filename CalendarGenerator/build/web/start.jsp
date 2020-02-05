@@ -15,17 +15,22 @@
     </head>
     <body style="background-color: #dfe5c9">
 
-        <font style="color: grey" size="20">Kalendárium</font><br><hr>
+        <font style="color: grey" size="20">Kalendárium</font><br>
+        
+        <a id="find" style="float: left ;color: grey;cursor: pointer">Névnap keresés</a><br>
+        <hr>
 
-        <br><br>
-
+        <br>
+         <p id="dates" style="color: blue"></p>
+        <br>
+            
         <form action="create" method="POST" accept-charset="UTF-8" id="inputdata">
             
             <p id="inf" style="color: red"></p>
             <h2 style="color: grey">Évszám megadása:</h2>
-            <input type="number" id="inyear" name="inputyear" min="1582" value="${thisyear}">
+            <input style="cursor: pointer" type="number" id="inyear" name="inputyear" min="1582" value="${thisyear}">
             <h2 style="color: grey">Hónap választása:</h2>   
-            <select name="inputmonth">
+            <select name="inputmonth" style="cursor: pointer">
                 
                 <c:forEach items="${monthsname}" begin="0" var="monthname" varStatus="i">
                     
@@ -58,9 +63,8 @@
         </form>
         
         <h2 style="color: grey" id="txt">Havi események:</h2>
-        <button style="color: black" id="add">Esemény hozzáadása</button><br><br><br>
-        <button style="color: black" id="gen">Hónap generálása</button>
-        
+        <button style="color: black; cursor: pointer" id="add">Esemény hozzáadása</button><br><br><br>
+        <button style="color: black; cursor: pointer" id="gen">Hónap generálása</button>
         
         
         <script src="script/startscript.js"></script>
