@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/model/NameDaySearcher.java</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/model/Month.java</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/start.jsp</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/script/startscript.js</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/interfaces/Feb.java</file>
-            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/src/java/com/david/giczi/calendar/servlets/NameDaySearcherServlet.java</file>
+            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/script/dispscript.js</file>
+            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/css/calendar.css</file>
+            <file>file:/C:/Users/Judut/Documents/NetBeansProjects/CalendarGenerator/web/display.jsp</file>
         </group>
     </open-files>
 </project-private>

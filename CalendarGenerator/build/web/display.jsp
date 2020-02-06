@@ -12,10 +12,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>${month}</title>
         <link rel="stylesheet" type="text/css" media="screen" href="css/calendar.css" />
+       
     </head>
     <body>
 
+       
         <br><br>
+        
+       
+        
         <table style="width: 100%">
 
             <tr>
@@ -51,6 +56,8 @@
     </table>
 
         <font id="yearmonth" size="6" face="Arial">${year}<b> |  ${month} </b></font>
+    
+    
         
         <br><br><br><br>
         
@@ -64,7 +71,7 @@
         
         <a id="print" style="color: grey;cursor: pointer">Oldal nyomtatása</a>
         
-       
+            
        
         
         <form action="create" method="POST" id="stepper">
@@ -83,10 +90,15 @@
           
         </form>
             
-            
+            <form action="print" method="POST" id="printForm" accept-charset="UTF-8" >
+                
+                <input type="hidden" name="html" id="str" value="">
+                
+            </form>   
             
             
         <script src="script/dispscript.js"></script>
+        
         
 </body>
 </html>
