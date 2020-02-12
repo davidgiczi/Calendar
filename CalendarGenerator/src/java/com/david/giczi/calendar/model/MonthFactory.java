@@ -1,4 +1,3 @@
-
 package com.david.giczi.calendar.model;
 
 import com.david.giczi.calendar.exceptions.NoSuchMonthException;
@@ -11,10 +10,8 @@ import java.util.Arrays;
  * @author GicziD
  */
 public class MonthFactory implements Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec {
-    
-     
-     
-       public static Month createMonth(MonthName month, int year) {
+
+    public static Month createMonth(MonthName month, int year) {
 
         switch (month) {
 
@@ -77,14 +74,11 @@ public class MonthFactory implements Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep
 
                 return new Month(month, Arrays.asList(Dec.NAMES), year,
                         Arrays.asList(Dec.HOLIDAYS), Arrays.asList(Dec.HOLIDATES));
-                
+
             default:
                 throw new NoSuchMonthException();
         }
 
-       
     }
-     
-     
-     
+
 }

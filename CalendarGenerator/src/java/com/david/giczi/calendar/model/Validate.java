@@ -1,4 +1,3 @@
-
 package com.david.giczi.calendar.model;
 
 import com.david.giczi.calendar.exceptions.NoSuchMonthException;
@@ -11,124 +10,114 @@ import java.util.GregorianCalendar;
  * @author GicziD
  */
 public class Validate {
-    
-    
-    public static boolean isYearValid(String inputData) {
-        
-        int year;
-        
-        try{
-            
-            if(inputData.length() != 4 ) {
-                throw new NumberFormatException();
-            }
-            
-            year = Integer.parseInt(inputData);
-            
-        }catch(NumberFormatException e){
-            
-            return false;
-        }
-        
-        return year>=1582;
-        
-     
-    }
-    
-   public static boolean isMonthDayNumberValid(String inputDay, String inputYear, String inputMonth) {
-       
-       if( " ".equals(inputDay) ){
-           
-           return true;
-       }
-       
-       int day;
-       
-       MonthName month = MonthName.getMonthNameByIndex(Integer.parseInt(inputMonth));
-       int year = Integer.parseInt(inputYear);
-       
-        try{
-            
-            if(inputDay.length() > 2 ) {
-                
-                throw new NumberFormatException();
-                
-            }
-            
-            day = Integer.parseInt(inputDay);
-            
-            if( 0 >= day) {
-                
-                 throw new NumberFormatException();
-            }
-            
-        }catch(NumberFormatException e){
-           
-            return false;
-        }
-       
-        switch(month){
-            
-            case JAN :
-            case MAR :
-            case MAY :
-            case JUL :
-            case AUG :
-            case OCT :
-            case DEC :
-                
-           return 32 > day;
-                
-            case FEB :
-          
-              return  new GregorianCalendar().isLeapYear(year) ?  30 > day : 29 > day ;
-            
-            case APR :
-            case JUN :
-            case SEP :
-            case NOV :
-                
-            return 31 > day;
-                
-            
-            default:
-                
-                throw new NoSuchMonthException();
-                    
-        }
-   } 
-    
-   
-   public static boolean isEasterValid(String event, String inputYear, String inputMonth, String inputDay){
-       
-       if( " ".equals(inputDay) ){
-           
-           return true;
-       }
-       
-       if( event.toLowerCase().startsWith( "húsvét" ) ) {
-           
-           if( MonthName.getMonthNameByIndex(Integer.parseInt(inputMonth)) != MonthName.MAR && 
-                   MonthName.getMonthNameByIndex(Integer.parseInt(inputMonth)) != MonthName.APR ) {
-               
-               
-               return false;
-       }
-       
-           
-      if( new GregorianCalendar(Integer.parseInt(inputYear), Integer.parseInt(inputMonth),
-              Integer.parseInt(inputDay)).get(Calendar.DAY_OF_WEEK) != 2 ){
-          
-          
-            return false;
-      }   
-  
-   }   
-   
-   return true;
-}
 
-    
-   
-   
+    public static boolean isYearValid(String inputData) {
+
+        int year;
+
+        try {
+
+            if (inputData.length() != 4) {
+                throw new NumberFormatException();
+            }
+
+            year = Integer.parseInt(inputData);
+
+        } catch (NumberFormatException e) {
+
+            return false;
+        }
+
+        return year >= 1582;
+
+    }
+
+    public static boolean isMonthDayNumberValid(String inputDay, String inputYear, String inputMonth) {
+
+        if (" ".equals(inputDay)) {
+
+            return true;
+        }
+
+        int day;
+
+        MonthName month = MonthName.getMonthNameByIndex(Integer.parseInt(inputMonth));
+        int year = Integer.parseInt(inputYear);
+
+        try {
+
+            if (inputDay.length() > 2) {
+
+                throw new NumberFormatException();
+
+            }
+
+            day = Integer.parseInt(inputDay);
+
+            if (0 >= day) {
+
+                throw new NumberFormatException();
+            }
+
+        } catch (NumberFormatException e) {
+
+            return false;
+        }
+
+        switch (month) {
+
+            case JAN:
+            case MAR:
+            case MAY:
+            case JUL:
+            case AUG:
+            case OCT:
+            case DEC:
+
+                return 32 > day;
+
+            case FEB:
+
+                return new GregorianCalendar().isLeapYear(year) ? 30 > day : 29 > day;
+
+            case APR:
+            case JUN:
+            case SEP:
+            case NOV:
+
+                return 31 > day;
+
+            default:
+
+                throw new NoSuchMonthException();
+
+        }
+    }
+
+    public static boolean isEasterValid(String event, String inputYear, String inputMonth, String inputDay) {
+
+        if (" ".equals(inputDay)) {
+
+            return true;
+        }
+
+        if (event.toLowerCase().startsWith("húsvét")) {
+
+            if (MonthName.getMonthNameByIndex(Integer.parseInt(inputMonth)) != MonthName.MAR
+                    && MonthName.getMonthNameByIndex(Integer.parseInt(inputMonth)) != MonthName.APR) {
+
+                return false;
+            }
+
+            if (new GregorianCalendar(Integer.parseInt(inputYear), Integer.parseInt(inputMonth),
+                    Integer.parseInt(inputDay)).get(Calendar.DAY_OF_WEEK) != 2) {
+
+                return false;
+            }
+
+        }
+
+        return true;
+    }
+
 }

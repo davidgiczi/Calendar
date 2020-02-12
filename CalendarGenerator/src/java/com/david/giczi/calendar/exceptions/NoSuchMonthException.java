@@ -1,4 +1,3 @@
-
 package com.david.giczi.calendar.exceptions;
 
 /**
@@ -9,5 +8,5 @@ public class NoSuchMonthException extends RuntimeException {
 
     public NoSuchMonthException() {
     }
-    
+
 }
