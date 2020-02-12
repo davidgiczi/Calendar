@@ -1,4 +1,3 @@
-
 package com.david.giczi.calendar.model;
 
 import com.david.giczi.calendar.utils.MonthName;
@@ -9,14 +8,14 @@ import java.util.Objects;
  * @author GicziD
  */
 public class Event {
-    
+
     private String eventName;
     private final int year;
     private final MonthName month;
     private final int day;
 
     public Event(String eventName, int year, MonthName month, int day) {
-        this.eventName ="&nbsp;&nbsp;&nbsp;<br>"+eventName;
+        this.eventName = "&nbsp;&nbsp;&nbsp;<br>" + eventName;
         this.year = year;
         this.month = month;
         this.day = day;
@@ -42,8 +41,6 @@ public class Event {
         this.eventName = eventName;
     }
 
-    
-    
     @Override
     public int hashCode() {
         int hash = 5;
@@ -81,16 +78,9 @@ public class Event {
         return true;
     }
 
-    
-    
-    
     @Override
     public String toString() {
         return "Event{" + "eventName=" + eventName + ", year=" + year + ", month=" + month + ", day=" + day + '}';
     }
-    
-    
-    
-    
-    
+
 }

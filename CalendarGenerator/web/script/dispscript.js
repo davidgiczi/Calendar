@@ -6,149 +6,147 @@ document.getElementById("del").addEventListener("click", delActualMonthEvents);
 document.getElementById("print").addEventListener("click", printPage);
 
 
- var actualyear = parseInt( document.getElementById("actyear").value );
- var actualmonth = document.getElementById("actmonth").value;
- var month;
+var actualyear = parseInt(document.getElementById("actyear").value);
+var actualmonth = document.getElementById("actmonth").value;
+var month;
 
 function delActualMonthEvents() {
-    
+
     month = getDayNumberByName();
     document.getElementById("delmonth").value = month;
     document.getElementById("delForm").submit();
-  
+
 }
 
 
 function toStartPage() {
-    
+
     var url = document.location.protocol + "//" + document.location.host;
-    
-    window.location.href = url+"/calendar";
+
+    window.location.href = url + "/calendar";
 }
 
-function getDayNumberByName () {
-    
-    switch(actualmonth) {
-        
+function getDayNumberByName() {
+
+    switch (actualmonth) {
+
         case "Január" :
-        
-        return 0;
-        
+
+            return 0;
+
         case "Február" :
-            
-        return 1;
-        
+
+            return 1;
+
         case "Március" :
-        
-        return 2;
-        
+
+            return 2;
+
         case "Április" :
-            
-        return 3;
-        
+
+            return 3;
+
         case "Május" :
-        
-        return 4;
-        
+
+            return 4;
+
         case "Június" :
-            
-        return 5;
-        
+
+            return 5;
+
         case "Július" :
-        
-        return 6;
-        
+
+            return 6;
+
         case "Augusztus" :
-            
-        return 7;
-        
+
+            return 7;
+
         case "Szeptember" :
-            
-        return 8;
-        
+
+            return 8;
+
         case "Október" :
-        
-        return 9;
-        
+
+            return 9;
+
         case "November" :
-            
-        return 10;
-        
+
+            return 10;
+
         case "December" :
-            
-        return 11;
-        
+
+            return 11;
+
     }
-     
+
 }
 
 function getNextMonth() {
-    
-    
-     month = getDayNumberByName();
-    
-    if( actualyear === 9999 && month === 11) {
+
+
+    month = getDayNumberByName();
+
+    if (actualyear === 9999 && month === 11) {
         return;
     }
-    
-    if( month === 11 ) {
-        
+
+    if (month === 11) {
+
         month = 0;
         actualyear++;
-        
-    }
-    else{
-        
+
+    } else {
+
         month++;
-        
+
     }
-    
-    sendData(); 
-    
+
+    sendData();
+
 }
 
 function getPreviousMonth() {
-    
+
     month = getDayNumberByName();
-    
-    if( actualyear === 1582 && month === 0) {
+
+    if (actualyear === 1582 && month === 0) {
         return;
     }
-    
-    if( month === 0 ) {
-        
+
+    if (month === 0) {
+
         month = 11;
         actualyear--;
-        
-    }
-    else{
-        
+
+    } else {
+
         month--;
-        
+
     }
-    
+
     sendData();
-   
+
 }
 
 function sendData() {
-   
-   document.getElementById("actyear").value = actualyear;
-   document.getElementById("actmonth").value = month;
-     
-   document.getElementById("stepper").submit(); 
-    
+
+    document.getElementById("actyear").value = actualyear;
+    document.getElementById("actmonth").value = month;
+
+    document.getElementById("stepper").submit();
+
 }
 
 function printPage() {
-   
-   window.print();
-   
 
- }
+    window.print();
 
-    
 
-  
-    
+}
+
+
+
+
+
 

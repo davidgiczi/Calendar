@@ -1,22 +1,19 @@
-
 package com.david.giczi.calendar.model;
-
-
 
 /**
  *
  * @author GicziD
  */
 public class Day {
-    
-  private String names;
-  private int dayOfWeek;
-  private String holidayName="";
+
+    private String names;
+    private int dayOfWeek;
+    private String holidayName = "";
 
     public Day(String names) {
-        
-       this.names = names;
-        
+
+        this.names = names;
+
     }
 
     public String getNames() {
@@ -26,7 +23,6 @@ public class Day {
     public void setNames(String names) {
         this.names = names;
     }
-
 
     public int getDayOfWeek() {
         return dayOfWeek;
@@ -41,18 +37,15 @@ public class Day {
     }
 
     public void setHolidayName(String holidayName) {
-        
+
         this.holidayName = holidayName;
-               
+
     }
 
     @Override
     public String toString() {
-        return "Day{" + "names=" + names + ", dayOfWeek=" + dayOfWeek + 
-                ", holidayName=" + holidayName + '}';
+        return "Day{" + "names=" + names + ", dayOfWeek=" + dayOfWeek
+                + ", holidayName=" + holidayName + '}';
     }
 
-   
-  
-        
 }
