@@ -106,46 +106,43 @@ public class Month {
         boolean fathersday = true;
 
         for (int i = 0; i < days.size(); i++) {
-            
 
-            if ( days.get(i).getDayOfWeek() == 1 ) {
+            if (days.get(i).getDayOfWeek() == 1) {
 
-                    sundayCounter++;
-                    childDayIndex = i;
-                   
-                }
-            
-            if ( sundayCounter == 1 && monthName == MonthName.MAY && mothersDay ) {
+                sundayCounter++;
+                childDayIndex = i;
 
-                    days.get(i).setHolidayName("Anyák napja");
-                    mothersDay = false;
-                }
-                
-            if ( sundayCounter == 3 && monthName == MonthName.JUN && fathersday ) {
-                        
-                    days.get(i).setHolidayName("Apák napja");
-                    fathersday = false;
-                }
-            
-             
-            for ( int j = 0; j < holidates.size(); j++ ) {
+            }
 
-            
-                if ( i + 1 == holidates.get(j) ) {
+            if (sundayCounter == 1 && monthName == MonthName.MAY && mothersDay) {
+
+                days.get(i).setHolidayName("Anyák napja");
+                mothersDay = false;
+            }
+
+            if (sundayCounter == 3 && monthName == MonthName.JUN && fathersday) {
+
+                days.get(i).setHolidayName("Apák napja");
+                fathersday = false;
+            }
+
+            for (int j = 0; j < holidates.size(); j++) {
+
+                if (i + 1 == holidates.get(j)) {
 
                     days.get(i).setHolidayName(holidays.get(j));
                 }
 
             }
-            
-        }
-        
-         if ( monthName == MonthName.MAY ) {
 
-                  days.get(childDayIndex).setHolidayName("Gyermeknap");
-                   
-                }
-        
+        }
+
+        if (monthName == MonthName.MAY) {
+
+            days.get(childDayIndex).setHolidayName("Gyermeknap");
+
+        }
+
     }
 
 }

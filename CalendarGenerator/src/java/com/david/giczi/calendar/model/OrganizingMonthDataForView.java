@@ -1,4 +1,3 @@
-
 package com.david.giczi.calendar.model;
 
 import com.david.giczi.calendar.exceptions.NoSuchDayException;
@@ -9,26 +8,24 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-
 /**
  *
  * @author GicziD
  */
 public class OrganizingMonthDataForView {
-    
+
     private final MonthName monthName;
     private final List<Day> days;
     private final int year;
-    private  int day;
+    private int day;
     private final List<Integer> dayNumberOfMonth;
-    private final List<String>  dayColorOfMonth;
-    private final List<String>  namedaysOfMonth;
-    private final List<String>  holidaysOfMonth;
+    private final List<String> dayColorOfMonth;
+    private final List<String> namedaysOfMonth;
+    private final List<String> holidaysOfMonth;
     private int numberOfRows;
-    
 
     public OrganizingMonthDataForView(int year, MonthName monthName) {
-        
+
         this.year = year;
         this.monthName = monthName;
         this.days = null;
@@ -37,21 +34,19 @@ public class OrganizingMonthDataForView {
         this.namedaysOfMonth = null;
         this.holidaysOfMonth = null;
     }
-   
-    
-    
+
     public OrganizingMonthDataForView(List<Day> days, int year, MonthName monthName) {
-        
+
         this.days = days;
         this.year = year;
         this.monthName = monthName;
-        
+
         dayNumberOfMonth = new ArrayList<>();
         dayColorOfMonth = new ArrayList<>();
         namedaysOfMonth = new ArrayList<>();
         holidaysOfMonth = new ArrayList<>();
-        
-       createViewLists();
+
+        createViewLists();
     }
 
     public List<Integer> getDayNumberOfMonth() {
@@ -85,327 +80,306 @@ public class OrganizingMonthDataForView {
     public void setDay(int day) {
         this.day = day;
     }
-        
+
     public String getNameOfMonth() {
-        
-        switch(monthName) {
-            
-            case JAN :
-                
+
+        switch (monthName) {
+
+            case JAN:
+
                 return "Január";
-            
-             case FEB :
-                
+
+            case FEB:
+
                 return "Február";
-                
-             case MAR :
-                
+
+            case MAR:
+
                 return "Március";
-                
-             case APR :
-                
+
+            case APR:
+
                 return "Április";
-                
-             case MAY :
-                
+
+            case MAY:
+
                 return "Május";
-                
-             case JUN :
-                
-                return "Június";   
-             
-             case JUL :
-                
+
+            case JUN:
+
+                return "Június";
+
+            case JUL:
+
                 return "Július";
-                
-             case AUG :
-                
+
+            case AUG:
+
                 return "Augusztus";
-             
-              case SEP :
-                
+
+            case SEP:
+
                 return "Szeptember";
-             
-              case OCT :
-                
+
+            case OCT:
+
                 return "Október";
-                
-              case NOV :
-                
+
+            case NOV:
+
                 return "November";
-                
-              case DEC :
-                
+
+            case DEC:
+
                 return "December";
-                
-             default:
-                 
-                 throw new NoSuchMonthException();
-        }
-        
-    }
-    
-    public int getMonthDaysNumber() {
-        
-         switch(monthName){
-            
-            case JAN :
-            case MAR :
-            case MAY :
-            case JUL :
-            case AUG :
-            case OCT :
-            case DEC :
-                
-           return 31;
-                
-            case FEB :
-          
-              return  new GregorianCalendar().isLeapYear(year) ?  29 : 28 ;
-            
-            case APR :
-            case JUN :
-            case SEP :
-            case NOV :
-                
-            return 30;
-                
-            
+
             default:
-                
+
                 throw new NoSuchMonthException();
-        
-        
+        }
+
     }
-  
-   }
-    
-    
+
+    public int getMonthDaysNumber() {
+
+        switch (monthName) {
+
+            case JAN:
+            case MAR:
+            case MAY:
+            case JUL:
+            case AUG:
+            case OCT:
+            case DEC:
+
+                return 31;
+
+            case FEB:
+
+                return new GregorianCalendar().isLeapYear(year) ? 29 : 28;
+
+            case APR:
+            case JUN:
+            case SEP:
+            case NOV:
+
+                return 30;
+
+            default:
+
+                throw new NoSuchMonthException();
+
+        }
+
+    }
+
     private int getPreviousMonthDaysNumber() {
-        
-        switch( monthName ) {
-           
-            case MAR : 
-                
-                if( new GregorianCalendar().isLeapYear(year) ) {
+
+        switch (monthName) {
+
+            case MAR:
+
+                if (new GregorianCalendar().isLeapYear(year)) {
                     return 29;
-                }
-                else {
+                } else {
                     return 28;
                 }
-            
-            case JAN :
-            case FEB : 
-            case APR : 
-            case JUN :
-            case AUG : 
-            case SEP :
-            case NOV : return 31;
-           
-            case MAY : 
-            case JUL : 
-            case OCT :
-            case DEC : return 30;
-            
+
+            case JAN:
+            case FEB:
+            case APR:
+            case JUN:
+            case AUG:
+            case SEP:
+            case NOV:
+                return 31;
+
+            case MAY:
+            case JUL:
+            case OCT:
+            case DEC:
+                return 30;
+
             default:
                 throw new NoSuchMonthException();
         }
-           
+
     }
-    
-       
-    
-    private void createTheEndOfThePreviousMonthElementsForViewLists(){
-        
-        
+
+    private void createTheEndOfThePreviousMonthElementsForViewLists() {
+
         int dayOfWeek = days.get(0).getDayOfWeek();
-        
-        
-        switch(dayOfWeek){
-            
-            case 1 :
-            
-           for(int i = getPreviousMonthDaysNumber()-5 ; i <= getPreviousMonthDaysNumber(); i++) {
-               
-              
-               
-               dayNumberOfMonth.add(i);
-               dayColorOfMonth.add("grey");
-               namedaysOfMonth.add("");
-               holidaysOfMonth.add("");
-           }
-                
-            break;  
-             
-            case 3 :
-                
-           for(int i = getPreviousMonthDaysNumber() ; i <= getPreviousMonthDaysNumber(); i++) {
-               
-               dayNumberOfMonth.add(i);
-               dayColorOfMonth.add("grey");
-               namedaysOfMonth.add("");
-               holidaysOfMonth.add("");
-               
-           }
-                
-            break; 
-            
-            case 4 :
-                
-           for(int i = getPreviousMonthDaysNumber()-1 ; i <= getPreviousMonthDaysNumber(); i++) {
-                
-               dayNumberOfMonth.add(i);
-               dayColorOfMonth.add("grey");
-               namedaysOfMonth.add("");
-               holidaysOfMonth.add("");
-               
-           }
-                
-            break; 
-            
-            case 5 :
-                
-           for(int i = getPreviousMonthDaysNumber()-2 ; i <= getPreviousMonthDaysNumber(); i++) {
-               
-               dayNumberOfMonth.add(i);
-               dayColorOfMonth.add("grey");
-               namedaysOfMonth.add("");
-               holidaysOfMonth.add("");
-               
-           }
-                
-            break; 
-            
-            case 6 :
-                
-          for(int i = getPreviousMonthDaysNumber()-3 ; i <= getPreviousMonthDaysNumber(); i++) {
-               
-               dayNumberOfMonth.add(i);
-               dayColorOfMonth.add("grey");
-               namedaysOfMonth.add("");
-               holidaysOfMonth.add("");
-               
-           }
-                
-            break;
-            
-            case 7 :
-                
-            for(int i = getPreviousMonthDaysNumber()-4 ; i <= getPreviousMonthDaysNumber(); i++) {
-               
-               dayNumberOfMonth.add(i);
-               dayColorOfMonth.add("grey");
-               namedaysOfMonth.add("");
-               holidaysOfMonth.add("");
-           }
-                
-           
+
+        switch (dayOfWeek) {
+
+            case 1:
+
+                for (int i = getPreviousMonthDaysNumber() - 5; i <= getPreviousMonthDaysNumber(); i++) {
+
+                    dayNumberOfMonth.add(i);
+                    dayColorOfMonth.add("#C0C0C0");
+                    namedaysOfMonth.add("");
+                    holidaysOfMonth.add("");
+                }
+
+                break;
+
+            case 3:
+
+                for (int i = getPreviousMonthDaysNumber(); i <= getPreviousMonthDaysNumber(); i++) {
+
+                    dayNumberOfMonth.add(i);
+                    dayColorOfMonth.add("#C0C0C0");
+                    namedaysOfMonth.add("");
+                    holidaysOfMonth.add("");
+
+                }
+
+                break;
+
+            case 4:
+
+                for (int i = getPreviousMonthDaysNumber() - 1; i <= getPreviousMonthDaysNumber(); i++) {
+
+                    dayNumberOfMonth.add(i);
+                    dayColorOfMonth.add("#C0C0C0");
+                    namedaysOfMonth.add("");
+                    holidaysOfMonth.add("");
+
+                }
+
+                break;
+
+            case 5:
+
+                for (int i = getPreviousMonthDaysNumber() - 2; i <= getPreviousMonthDaysNumber(); i++) {
+
+                    dayNumberOfMonth.add(i);
+                    dayColorOfMonth.add("#C0C0C0");
+                    namedaysOfMonth.add("");
+                    holidaysOfMonth.add("");
+
+                }
+
+                break;
+
+            case 6:
+
+                for (int i = getPreviousMonthDaysNumber() - 3; i <= getPreviousMonthDaysNumber(); i++) {
+
+                    dayNumberOfMonth.add(i);
+                    dayColorOfMonth.add("#C0C0C0");
+                    namedaysOfMonth.add("");
+                    holidaysOfMonth.add("");
+
+                }
+
+                break;
+
+            case 7:
+
+                for (int i = getPreviousMonthDaysNumber() - 4; i <= getPreviousMonthDaysNumber(); i++) {
+
+                    dayNumberOfMonth.add(i);
+                    dayColorOfMonth.add("#C0C0C0");
+                    namedaysOfMonth.add("");
+                    holidaysOfMonth.add("");
+                }
+
         }
-        
+
     }
-    
-   private void createTheMonthElementsForViewLists(){
-       
-      
-       for ( int i = 1; i <= days.size(); i++){
-           
-           dayNumberOfMonth.add(i);
-           namedaysOfMonth.add(days.get(i-1).getNames());
-           holidaysOfMonth.add(days.get(i-1).getHolidayName());
-           
-           if( days.get(i-1).getDayOfWeek() == 1 ) {
-               
-               dayColorOfMonth.add("red");
-                
-           }
-           else if( days.get(i-1).getDayOfWeek() != 1 && !"".equals( days.get(i-1).getHolidayName() )){
-               
-               dayColorOfMonth.add("red");
-           }
-           else {
-               
+
+    private void createTheMonthElementsForViewLists() {
+
+        for (int i = 1; i <= days.size(); i++) {
+
+            dayNumberOfMonth.add(i);
+            namedaysOfMonth.add(days.get(i - 1).getNames());
+            holidaysOfMonth.add(days.get(i - 1).getHolidayName());
+
+            if (days.get(i - 1).getDayOfWeek() == 1) {
+
+                dayColorOfMonth.add("red");
+
+            } else if (days.get(i - 1).getDayOfWeek() != 1 && !"".equals(days.get(i - 1).getHolidayName())) {
+
+                dayColorOfMonth.add("red");
+            } else {
+
                 dayColorOfMonth.add("black");
-           }
-           
-           
-       }
-         
-   }
-  
-   private void createTheBeginOfTheNextMonthElementsForViewLists(){
-       
-       int sizeValue = 35-dayNumberOfMonth.size();
-       
-       
-       if( dayNumberOfMonth.size() <= 35 ) {
-       
-       for( int i = 0 ; i < sizeValue; i++ ) {
-           
-           dayNumberOfMonth.add(i+1);
-           dayColorOfMonth.add("grey");
-           namedaysOfMonth.add("");
-           holidaysOfMonth.add("");
-       }
-       
-       numberOfRows = 4;
-       
-    }   
-       else {
-           
-       for( int i = 0 ; i < 7 + sizeValue; i++ ) {
-           
-           dayNumberOfMonth.add(i+1);
-           dayColorOfMonth.add("grey");
-           namedaysOfMonth.add("");
-           holidaysOfMonth.add("");
-       }
-           
-           
-           numberOfRows = 5;
-       }
-       
-   }
-   
-   private void createViewLists(){
-       
+            }
+
+        }
+
+    }
+
+    private void createTheBeginOfTheNextMonthElementsForViewLists() {
+
+        int sizeValue = 35 - dayNumberOfMonth.size();
+
+        if (dayNumberOfMonth.size() <= 35) {
+
+            for (int i = 0; i < sizeValue; i++) {
+
+                dayNumberOfMonth.add(i + 1);
+                dayColorOfMonth.add("#C0C0C0");
+                namedaysOfMonth.add("");
+                holidaysOfMonth.add("");
+            }
+
+            numberOfRows = 4;
+
+        } else {
+
+            for (int i = 0; i < 7 + sizeValue; i++) {
+
+                dayNumberOfMonth.add(i + 1);
+                dayColorOfMonth.add("#C0C0C0");
+                namedaysOfMonth.add("");
+                holidaysOfMonth.add("");
+            }
+
+            numberOfRows = 5;
+        }
+
+    }
+
+    private void createViewLists() {
+
         createTheEndOfThePreviousMonthElementsForViewLists();
         createTheMonthElementsForViewLists();
         createTheBeginOfTheNextMonthElementsForViewLists();
-       
-       
-   }
-   
-   
-   public String getNameOfDay(){
-       
-       int dayOfWeek = new GregorianCalendar(year, MonthName.getMonthIndexByName(monthName), day).get(Calendar.DAY_OF_WEEK);
-       
-       switch(dayOfWeek){
-           
-           case 1 :
-               return "vasárnap";
-           case 2 :
-               return "hétfő";
-           case 3:
-               return "kedd";
-           case 4:
-               return "szerda";
-           case 5:
-               return "csütörtök";
-           case 6:
-               return "péntek";
-           case 7:
-               return "szombat";
-               
-           default:
-               
-                  throw new NoSuchDayException();
-           
-           
-       }
-       
-       
-   }
 
-   
+    }
+
+    public String getNameOfDay() {
+
+        int dayOfWeek = new GregorianCalendar(year, MonthName.getMonthIndexByName(monthName), day).get(Calendar.DAY_OF_WEEK);
+
+        switch (dayOfWeek) {
+
+            case 1:
+                return "vasárnap";
+            case 2:
+                return "hétfő";
+            case 3:
+                return "kedd";
+            case 4:
+                return "szerda";
+            case 5:
+                return "csütörtök";
+            case 6:
+                return "péntek";
+            case 7:
+                return "szombat";
+
+            default:
+
+                throw new NoSuchDayException();
+
+        }
+
+    }
+
 }
