@@ -3,6 +3,7 @@ document.getElementById("prev").addEventListener("click", getPreviousMonth);
 document.getElementById("next").addEventListener("click", getNextMonth);
 document.getElementById("start").addEventListener("click", toStartPage);
 document.getElementById("del").addEventListener("click", delActualMonthEvents);
+document.getElementById("print").addEventListener("click", printPage);
 
 
  var actualyear = parseInt( document.getElementById("actyear").value );
@@ -139,5 +140,15 @@ function sendData() {
     
 }
 
+function printPage() {
+   
+   window.print();
+   
 
+ }
+
+    
+
+  
+    
 
