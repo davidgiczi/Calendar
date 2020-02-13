@@ -41,7 +41,7 @@
 
 
                         <td style="text-align: right; border: 1px solid black; border-collapse: collapse; vertical-align: top; height: 90px">
-                    <font style="color: red" size="1" face="Arial">${holidays[i.index*7+j.index]}&nbsp;&nbsp;&nbsp;</font><br>
+                            <font style="color: red" size="1" face="Arial">${holidays[i.index*7+j.index]}&nbsp;&nbsp;&nbsp;</font><br>
                             <font style="color: black" size="1" face="Arial">${names[i.index*7+j.index]}</font>
                             <font size="4" face="Arial" style="color: ${colors[i.index*7+j.index]}">&nbsp;${daynumbers[i.index*7+j.index]}&nbsp;</font></td>
 

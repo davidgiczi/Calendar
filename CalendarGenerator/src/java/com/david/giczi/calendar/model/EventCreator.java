@@ -38,12 +38,21 @@ public class EventCreator {
 
     public static void addEventsToTheMonth(Month month) {
 
-        EVENTS.stream().filter((event)
-                -> (event.getYear() == month.getYear() && event.getMonth() == month.getMonthName()))
-                .forEachOrdered((event) -> {
-                    month.getDays().get(event.getDay() - 1).setHolidayName(month.getDays()
-                            .get(event.getDay() - 1).getHolidayName() + event.getEventName());
-                });
+        EVENTS.stream().filter((event) -> (event.getYear() == month.getYear()
+                && event.getMonth() == month.getMonthName())).forEachOrdered((event) -> {
+
+            if ("".equals(month.getDays().get(event.getDay() - 1).getHolidayName())) {
+
+                month.getDays().get(event.getDay() - 1).setHolidayName(event.getEventName());
+
+            } else {
+
+                month.getDays().get(event.getDay() - 1).setHolidayName(
+                        month.getDays().get(event.getDay() - 1).getHolidayName()
+                        + "&nbsp;&nbsp;&nbsp;<br>" + event.getEventName());
+
+            }
+        });
 
     }
 
