@@ -103,7 +103,7 @@ public class Month {
         int sundayCounter = 0;
         boolean mothersDay = true;
         int childDayIndex = 0;
-        boolean fathersday = true;
+        boolean fathersDay = true;
 
         for (int i = 0; i < days.size(); i++) {
 
@@ -120,10 +120,10 @@ public class Month {
                 mothersDay = false;
             }
 
-            if (sundayCounter == 3 && monthName == MonthName.JUN && fathersday) {
+            if (sundayCounter == 3 && monthName == MonthName.JUN && fathersDay) {
 
                 days.get(i).setHolidayName("Apák napja");
-                fathersday = false;
+                fathersDay = false;
             }
 
             for (int j = 0; j < holidates.size(); j++) {
